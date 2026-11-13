@@ -1,0 +1,25 @@
+#createButton {
+    -fx-pref-height: 175px;
+    -fx-pref-width: 120px;
+    -fx-font-size: 16pt;
+    -fx-background-color: #1abc9c;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+}
+
+#createButton:pressed {
+    -fx-background-color: #9ed9cd;
+}
+
+#cancelButton {
+    -fx-pref-height: 55px;
+    -fx-pref-width: 120px;
+    -fx-font-size: 12pt;
+    -fx-background-color: #cc5b4f;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+}
+
+#cancelButton:pressed {
+    -fx-background-color: #d89690;
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.layout.HBox?>
+<?import com.jfoenix.controls.JFXButton?>
+<!--suppress JavaFxUnresolvedFxIdReference -->
+
+<?import kz.umag.scale.ui.component.GestureScrollPane?>
+<BorderPane fx:id="root"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            maxWidth="560.0"
+            prefWidth="560.0"
+            maxHeight="520"
+            fx:controller="kz.umag.scale.ui.dialog.InformationModalDialogV2"
+            stylesheets="@../styles/info_dialog.css">
+    <top>
+        <TextFlow>
+            <padding>
+                <Insets top="24" left="24" right="24"/>
+            </padding>
+            <Text fx:id="title"
+                  text="Загловок"/>
+        </TextFlow>
+    </top>
+    <center>
+        <GestureScrollPane minHeight="100">
+            <TextFlow>
+                <padding>
+                    <Insets top="24" left="24" right="24"/>
+                </padding>
+                <Text fx:id="content"
+                      text="Текст здесь"/>
+            </TextFlow>
+        </GestureScrollPane>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="16" left="16" right="16" bottom="16"/>
+            </padding>
+            <JFXButton fx:id="ok"
+                       minWidth="120"
+                       styleClass="secondary"
+                       text="OK"
+                       onAction="#hide"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

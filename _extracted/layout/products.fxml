@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="734.0" prefWidth="1024.0" stylesheets="@../styles/products.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kz.umag.scale.ui.ProductsControl">
+   <children>
+      <BorderPane prefHeight="734.0" prefWidth="1024.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="0.0">
+          <top>
+              <HBox alignment="BOTTOM_LEFT" prefHeight="50.0" prefWidth="162.0">
+               <children>
+                  <JFXButton fx:id="backToSyncButton" onAction="#backToSync" prefHeight="38.0" prefWidth="217.0" styleClass="primary" text="Вернуться к синхронизации" />
+                  <TextField fx:id="searchTextField" prefHeight="40.0" prefWidth="777.0" promptText="      Молоко" styleClass="textFieldLoop">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Roboto" size="16.0" />
+                     </font>
+                  </TextField>
+               </children></HBox>
+          </top>
+        <center>
+            <TableView fx:id="productsTableView" layoutX="-4.0" layoutY="77.0" prefHeight="656.0" prefWidth="1030.0" stylesheets="@../styles/products.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
+                <columns>
+                    <TableColumn fx:id="indexTableColumn" prefWidth="42.0" text="#" />
+                    <TableColumn fx:id="nameTableColumn" minWidth="114.0" prefWidth="238.0" text="Наименование" />
+                    <TableColumn fx:id="barcodeTableColumn" minWidth="52.0" prefWidth="130.0" text="Штрих код" />
+                    <TableColumn fx:id="priceTableColumn" prefWidth="120.0" text="Цена" />
+                    <TableColumn fx:id="additionalCodeTableColumn" prefWidth="120.0" text="Доп . код" />
+                    <TableColumn fx:id="numberOnScaleTableColumn" prefWidth="124.0" text="№ на весах" />
+                    <TableColumn fx:id="editTimeTableColumn" prefWidth="217.0" text="Дата изменения" />
+                </columns>
+               <BorderPane.margin>
+                  <Insets top="8.0" />
+               </BorderPane.margin>
+            </TableView>
+        </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
+

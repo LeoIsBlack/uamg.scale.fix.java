@@ -1,0 +1,49 @@
+#root {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10;
+}
+
+.primary {
+    -fx-font-size: 14pt;
+    -fx-font-family: Roboto;
+    -fx-text-fill: white;
+    -fx-background-color: #2DBE60;
+    -fx-border-color: #2DBE60;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+}
+
+.secondary {
+    -fx-font-size: 14pt;
+    -fx-font-family: Roboto;
+    -fx-text-fill: #333333;
+    -fx-border-color: #66555555;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+}
+
+#title, #title_middle, #title_end {
+    -fx-font-family: Roboto;
+    -fx-font-weight: bold;
+    -fx-font-size: 20pt;
+    -fx-fill: #212121;
+}
+
+#content {
+    -fx-font-size: 18px;
+    -fx-font-family: 'Roboto';
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+/*.scroll-bar .increment-button,*/
+/*.scroll-bar .decrement-button {*/
+/*    -fx-pref-width: 24;*/
+/*    -fx-pref-height: 24;*/
+/*}*/

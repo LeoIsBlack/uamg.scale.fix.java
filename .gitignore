@@ -1,4 +1,7 @@
 # Runtime and temporary database files
+*.lck
+*.tmp
+*.log
 /bin/db/*.lck
 /bin/db/*.tmp
 /bin/db/*.log
@@ -6,14 +9,15 @@
 /db/*.tmp
 /db/*.log
 
-# Application logs
+# Logs
 /logs/
 /bin/logs/
-*.log
 
 # Backups
 *.bak
-*.tmp
 
-# Temporary audit/patch scripts
+# Temporary scripts
 repack_final.js.tmp
+
+# JRE binaries (150MB, excluded to avoid GitHub file size warnings; install Java 8 locally)
+jre/

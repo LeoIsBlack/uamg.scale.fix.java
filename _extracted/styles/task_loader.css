@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+
+/* Same card look as modal_dialog.css .mainWindow */
+.loaderCard {
+    -fx-background-color: white;
+    -fx-background-radius: 13;
+    -fx-border-color: #66555555;
+    -fx-border-width: 1;
+    -fx-border-radius: 13;
+    -fx-padding: 36 32 32 32;
+    -fx-spacing: 24;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 24, 0, 0, 4);
+}
+
+.loaderCard .jfx-spinner .arc {
+    -fx-stroke: #2DBE60;
+    -fx-stroke-width: 5;
+}
+
+.loaderText {
+    -fx-font-family: "Roboto";
+    -fx-font-size: 16px;
+    -fx-text-fill: #4F4F4F;
+    -fx-text-alignment: center;
+    -fx-wrap-text: true;
+}

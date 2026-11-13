@@ -1,0 +1,70 @@
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Roboto-Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
+    font-family: "Roboto-Medium";
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/Roboto-Medium.ttf');
+}
+
+@font-face {
+    font-family: "Roboto-Italic";
+    src: url('../fonts/Roboto-Italic.ttf');
+}
+
+@font-face {
+    font-family: "RobotoThin";
+    src: url('../fonts/Roboto-Thin.ttf');
+}
+
+@font-face {
+    font-family: "RobotoLight";
+    src: url('../fonts/Roboto-Light.ttf');
+}
+.mainWindow {
+    -fx-background-radius: 13;
+    -fx-font-family: "Roboto Medium";
+    -fx-border-color: #66555555;
+    -fx-border-width: 1;
+    -fx-border-radius: 13;
+}
+
+.primary {
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 15pt;
+    -fx-background-color: #2DBE60;
+    -fx-border-color: #2DBE60;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+}
+
+.primaryExit {
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 15pt;
+    -fx-background-color: #FF5B3C;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+}
+
+.secondary {
+    -fx-text-fill: #333333;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 15pt;
+    -fx-border-color: #66555555;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+}

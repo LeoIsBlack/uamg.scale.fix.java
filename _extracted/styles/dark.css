@@ -1,0 +1,388 @@
+/* ===================================================
+   ТЕМНАЯ ТЕМА (DARK MODE) ДЛЯ DESKTOP UMAG FX
+   Senior Developer Fix - полное покрытие
+   =================================================== */
+
+/* Корень JavaFX - переопределяем базовые цвета */
+.root {
+    -fx-base: #1e293b;
+    -fx-background: #0f172a;
+    -fx-control-inner-background: #1e293b;
+    -fx-control-inner-background-alt: #162032;
+}
+
+/* =========================================
+   ВЕРХНЯЯ ПАНЕЛЬ
+   ========================================= */
+.headerBar {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-border-width: 0 0 1 0;
+}
+
+.headerBar .text {
+    -fx-fill: #f8fafc;
+}
+
+.headerBar .label {
+    -fx-text-fill: #f8fafc;
+}
+
+/* =========================================
+   КОНТЕЙНЕРЫ И ФОНЫ
+   ========================================= */
+
+/* Центральная область (замена hardcoded #F1F5F9) */
+.appContainer {
+    -fx-background-color: #0f172a;
+}
+
+/* Root BorderPane */
+.root > * {
+    -fx-background-color: #0f172a;
+}
+
+/* Боковое меню */
+#sideMenu {
+    -fx-background-color: #1e293b;
+    -fx-border-color: transparent #334155 transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* Корень синхронизации (.syncRoot styleClass на StackPane) */
+.syncRoot {
+    -fx-background-color: #0b1120;
+}
+
+/* Таблица синхронизации */
+.syncTableView {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+}
+
+/* Кнопка меню */
+.menuBtn {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.menuBtn:hover {
+    -fx-background-color: #334155;
+}
+
+/* Главное окно диалогов */
+.mainWindow {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+}
+
+/* Версия */
+#versionText, .version-text {
+    -fx-text-fill: #64748b;
+}
+
+/* =========================================
+   БОКОВОЕ МЕНЮ — ТАБЫ
+   ========================================= */
+.tabButton {
+    -fx-text-fill: #94a3b8;
+    -fx-background-color: transparent;
+}
+
+.tabButton:hover {
+    -fx-background-color: #334155;
+    -fx-text-fill: #ffffff;
+}
+
+.tabButtonSync:selected {
+    -fx-background-color: rgba(16, 185, 129, 0.2);
+    -fx-border-color: transparent transparent transparent #10b981;
+    -fx-border-width: 0 0 0 4;
+    -fx-text-fill: #34d399;
+}
+
+.tabButtonProducts:selected {
+    -fx-background-color: rgba(59, 130, 246, 0.2);
+    -fx-border-color: transparent transparent transparent #3b82f6;
+    -fx-border-width: 0 0 0 4;
+    -fx-text-fill: #60a5fa;
+}
+
+.tabButtonUpdate:selected {
+    -fx-background-color: rgba(245, 158, 11, 0.2);
+    -fx-border-color: transparent transparent transparent #f59e0b;
+    -fx-border-width: 0 0 0 4;
+    -fx-text-fill: #fbbf24;
+}
+
+.tabButtonExit:selected {
+    -fx-background-color: rgba(239, 68, 68, 0.2);
+    -fx-border-color: transparent transparent transparent #ef4444;
+    -fx-border-width: 0 0 0 4;
+    -fx-text-fill: #f87171;
+}
+
+/* =========================================
+   КНОПКИ УПРАВЛЕНИЯ ОКНОМ
+   ========================================= */
+.winBtn {
+    -fx-background-color: #334155;
+    -fx-text-fill: #cbd5e1;
+    -fx-border-color: #475569;
+}
+
+.winBtn:hover {
+    -fx-background-color: #475569;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #64748b;
+}
+
+.winBtnTheme {
+    -fx-background-color: #1e3a5f;
+    -fx-text-fill: #93c5fd;
+    -fx-border-color: #2563eb;
+}
+
+.winBtnTheme:hover {
+    -fx-background-color: #1d4ed8;
+    -fx-text-fill: #ffffff;
+}
+
+.winBtnMinimize, .winBtnMaximize {
+    -fx-background-color: #334155;
+    -fx-text-fill: #cbd5e1;
+    -fx-border-color: #475569;
+}
+
+.winBtnClose {
+    -fx-background-color: #7f1d1d;
+    -fx-text-fill: #fca5a5;
+    -fx-border-color: #991b1b;
+}
+
+.winBtnClose:hover {
+    -fx-background-color: #ef4444;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #ef4444;
+}
+
+/* =========================================
+   ТАБЛИЦЫ — ПОЛНОЕ ПОКРЫТИЕ
+   ========================================= */
+
+/* Общий .table-view */
+.table-view {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-border-width: 1;
+    -fx-effect: none;
+}
+
+/* Убираем серый фон за таблицей */
+.table-view .virtual-flow,
+.table-view .clipped-container,
+.table-view .sheet {
+    -fx-background-color: #1e293b;
+}
+
+/* Заголовки колонок */
+.table-view .column-header-background {
+    -fx-background-color: #0f172a;
+}
+
+.table-view .column-header {
+    -fx-background-color: #0f172a;
+    -fx-border-color: transparent transparent #334155 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #94a3b8;
+    -fx-font-weight: bold;
+}
+
+/* Угол правее заголовков */
+.table-view .column-header-background .filler {
+    -fx-background-color: #0f172a;
+}
+
+/* Ячейки */
+.table-view .table-cell {
+    -fx-text-fill: #f1f5f9;
+    -fx-border-color: transparent;
+}
+
+.boldColumn {
+    -fx-text-fill: #ffffff;
+}
+
+/* Строки */
+.table-row-cell {
+    -fx-background-color: #1e293b;
+    -fx-border-color: transparent transparent #0f172a transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #162032;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #24324a;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgba(16, 185, 129, 0.25);
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: #34d399;
+}
+
+/* Placeholder "нет данных" */
+.table-view .placeholder {
+    -fx-background-color: #1e293b;
+}
+
+.table-view .placeholder .label {
+    -fx-text-fill: #64748b;
+}
+
+/* Скролл-бары таблицы */
+.table-view .scroll-bar:vertical,
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: #1e293b;
+}
+
+.table-view .scroll-bar .thumb {
+    -fx-background-color: #334155;
+    -fx-background-radius: 4;
+}
+
+/* =========================================
+   НИЖНЯЯ ПАНЕЛЬ (lowerPart)
+   ========================================= */
+.lowerPart {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+    -fx-effect: none;
+}
+
+.lowerPart .text {
+    -fx-fill: #f1f5f9;
+}
+
+.lowerPart .label {
+    -fx-text-fill: #f1f5f9;
+}
+
+/* =========================================
+   ГИПЕРССЫЛКИ
+   ========================================= */
+.hyperlink {
+    -fx-text-fill: #60a5fa;
+    -fx-border-color: transparent;
+}
+
+.hyperlink:hover {
+    -fx-text-fill: #93c5fd;
+}
+
+/* =========================================
+   ПОЛОСА ВЕСОВ (карточки весов сверху)
+   ========================================= */
+.secondaryScales {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #cbd5e1;
+    -fx-border-color: #334155;
+}
+
+.secondaryScales:hover {
+    -fx-background-color: #334155;
+    -fx-border-color: #475569;
+}
+
+.secondaryScales:selected {
+    -fx-background-color: rgba(16, 185, 129, 0.2);
+    -fx-border-color: #10b981;
+    -fx-text-fill: #34d399;
+}
+
+/* ScrollPane за карточками весов */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* =========================================
+   ПОЛЯ ВВОДА И КОМБОБОКСЫ
+   ========================================= */
+.text-field, .textFieldLoop {
+    -fx-background-color: #0f172a;
+    -fx-text-fill: #f8fafc;
+    -fx-border-color: #334155;
+    -fx-prompt-text-fill: #64748b;
+}
+
+.text-field:focused, .textFieldLoop:focused {
+    -fx-border-color: #10b981;
+}
+
+.combo-box {
+    -fx-background-color: #0f172a;
+    -fx-border-color: #334155;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #f8fafc;
+    -fx-background-color: #0f172a;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #334155;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #334155;
+    -fx-text-fill: #ffffff;
+}
+
+/* =========================================
+   КНОПКИ ВТОРОСТЕПЕННЫЕ
+   ========================================= */
+.secondary {
+    -fx-background-color: #334155;
+    -fx-text-fill: #f1f5f9;
+    -fx-border-color: #475569;
+}
+
+.secondary:hover {
+    -fx-background-color: #475569;
+    -fx-border-color: #64748b;
+}
+
+/* =========================================
+   ОБЩИЕ ТЕКСТОВЫЕ ЭЛЕМЕНТЫ
+   ========================================= */
+.label {
+    -fx-text-fill: #f1f5f9;
+}
+
+.text {
+    -fx-fill: #f1f5f9;
+}
+
+/* Название компании */
+#companyNameText {
+    -fx-fill: #34d399;
+}
+
+/* Статус подключения (оставляем зелёным) */
+#conStatus {
+    -fx-fill: #2dbe60;
+}

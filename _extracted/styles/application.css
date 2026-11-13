@@ -1,0 +1,30 @@
+.key {
+    -fx-font-size: 16pt;
+    -fx-text-fill: white;
+    -fx-background-color: #1ABB9B;
+    -fx-background-radius: 8px;
+}
+
+.key:pressed {
+    -fx-background-color: #9ed9cd;
+}
+
+.advanced_key {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-font-size: 16pt;
+    -fx-border-color: #1ABB9B;
+    -fx-border-radius: 8px;
+}
+
+.text-field {
+    -fx-border-color: #1ABB9B;
+    -fx-text-alignment: center;
+    -fx-pref-height: 40px;
+    -fx-font-size: 15pt;
+    -fx-alignment: center
+}
+
+.text-field2 {
+    -fx-border-color: red;
+}

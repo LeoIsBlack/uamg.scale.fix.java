@@ -1,0 +1,16 @@
+.border{
+	-fx-padding: 10;
+	-fx-border-style: solid inside;
+	-fx-border-width: 2;
+	-fx-border-insets: 5;
+	-fx-border-color: #1abc9c
+}
+
+.button{
+    -fx-font-family: "Arial", Helvetica;
+    -fx-font-size: 10pt;
+    -fx-font-weight: normal;
+    -fx-text-fill: black;
+    -fx-background-radius: 10;
+    -fx-pref-height: 110;
+}

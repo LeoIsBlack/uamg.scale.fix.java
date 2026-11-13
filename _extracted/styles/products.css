@@ -1,0 +1,114 @@
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Roboto-Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
+    font-family: "Roboto-Medium";
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/Roboto-Medium.ttf');
+}
+
+/* Кнопка возврата к синхронизации */
+.primary {
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto";
+    -fx-font-size: 11pt;
+    -fx-font-weight: bold;
+    -fx-background-color: #10b981;
+    -fx-border-color: #059669;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(16,185,129,0.25), 6, 0, 0, 2);
+}
+
+.primary:hover {
+    -fx-background-color: #059669;
+}
+
+/* Таблица товаров */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1;
+    -fx-focus-traversable: false;
+    -fx-font-family: "Roboto";
+    -fx-font-size: 15px;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 8, 0, 0, 2);
+}
+
+.table-view .column-header {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: transparent transparent #e2e8f0 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-text-fill: #475569;
+    -fx-pref-height: 40px;
+}
+
+.table-view .table-cell {
+    -fx-border-width: 0;
+    -fx-text-fill: #1e293b;
+    -fx-font-family: "Roboto";
+    -fx-alignment: center-left;
+    -fx-font-size: 16px;
+    -fx-pref-height: 52px;
+    -fx-padding: 0.0 0.0 0.0 14.0;
+}
+
+.boldColumn {
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f172a;
+}
+
+.table-row-cell {
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent transparent #f1f5f9 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f8fafc;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #f1f5f9;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #ecfdf5;
+    -fx-text-fill: #065f46;
+}
+
+/* Поле поиска товаров */
+.textFieldLoop {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-size: 14px;
+    -fx-background-image: url('../image/search_icon.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: left 12px center;
+}
+
+.textFieldLoop:focused {
+    -fx-border-color: #10b981;
+    -fx-effect: dropshadow(gaussian, rgba(16,185,129,0.25), 6, 0, 0, 0);
+}

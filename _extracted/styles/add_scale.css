@@ -1,0 +1,99 @@
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Roboto-Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
+    font-family: "Roboto-Medium";
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/Roboto-Medium.ttf');
+}
+
+.mainWindow {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 14;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1;
+    -fx-border-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 20, 0, 0, 4);
+}
+
+.combo-box {
+    -fx-background-color: #ffffff;
+    -fx-border-width: 1;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-family: "Roboto";
+    -fx-font-size: 14;
+    -fx-text-fill: #1e293b;
+}
+
+.combo-box:focused {
+    -fx-border-color: #10b981;
+    -fx-effect: dropshadow(gaussian, rgba(16,185,129,0.25), 6, 0, 0, 0);
+}
+
+.hyperlink {
+    -fx-text-fill: #2563eb;
+}
+
+.primary {
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto";
+    -fx-font-size: 13pt;
+    -fx-font-weight: bold;
+    -fx-background-color: #10b981;
+    -fx-border-color: #059669;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(16,185,129,0.25), 6, 0, 0, 2);
+}
+
+.primary:hover {
+    -fx-background-color: #059669;
+}
+
+.secondary {
+    -fx-font-family: "Roboto";
+    -fx-font-size: 13pt;
+    -fx-font-weight: 500;
+    -fx-text-fill: #334155;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cbd5e1;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.secondary:hover {
+    -fx-background-color: #f1f5f9;
+    -fx-border-color: #94a3b8;
+}
+
+.text-field {
+    -fx-background-color: #ffffff;
+    -fx-border-width: 1;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-size: 15;
+}
+
+.text-field:focused {
+    -fx-border-color: #10b981;
+    -fx-effect: dropshadow(gaussian, rgba(16,185,129,0.25), 6, 0, 0, 0);
+}
