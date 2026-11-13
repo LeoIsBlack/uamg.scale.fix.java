@@ -1,0 +1,19 @@
+# Runtime and temporary database files
+/bin/db/*.lck
+/bin/db/*.tmp
+/bin/db/*.log
+/db/*.lck
+/db/*.tmp
+/db/*.log
+
+# Application logs
+/logs/
+/bin/logs/
+*.log
+
+# Backups
+*.bak
+*.tmp
+
+# Temporary audit/patch scripts
+repack_final.js.tmp
