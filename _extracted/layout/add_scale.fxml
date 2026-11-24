@@ -9,79 +9,57 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>                                 
-
+<?import javafx.scene.text.Text?>
 <?import kz.umag.scale.ui.component.MaskField?>
 
-<VBox fx:id="container" prefHeight="500.0" prefWidth="348.0" styleClass="mainWindow" stylesheets="@../styles/add_scale.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kz.umag.scale.ui.AddScaleControl">
+<VBox fx:id="container" prefWidth="348.0" styleClass="mainWindow, dialogSurface" stylesheets="@../styles/common.css, @../styles/add_scale.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kz.umag.scale.ui.AddScaleControl">
+   <padding>
+      <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+   </padding>
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Добавить весы">
+      <Text styleClass="dialogTitle" text="Добавить весы" />
+      <Label styleClass="fieldLabel" text="Тип весов">
          <VBox.margin>
-            <Insets top="24.0" />
+            <Insets top="18.0" />
          </VBox.margin>
-         <font>
-            <Font name="Roboto Medium" size="20.0" />
-         </font>
-      </Text>
-      <Label text="Тип весов" textFill="#4f4f4f">
+      </Label>
+      <ComboBox fx:id="typesComboBox" maxWidth="Infinity" minHeight="-Infinity" prefHeight="44.0" promptText="Выберите тип весов">
+         <VBox.margin>
+            <Insets top="6.0" />
+         </VBox.margin>
+      </ComboBox>
+      <Label styleClass="fieldLabel" text="IP-адрес">
          <VBox.margin>
             <Insets top="16.0" />
          </VBox.margin>
-         <font>
-            <Font name="Roboto Medium" size="16.0" />
-         </font>
       </Label>
-      <ComboBox fx:id="typesComboBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="300.0" promptText="Выберите тип весов">
+      <MaskField fx:id="ipMask" maxWidth="Infinity" prefHeight="44.0">
          <VBox.margin>
-            <Insets top="8.0" />
-         </VBox.margin>
-      </ComboBox>
-      <Label text="IP адресс" textFill="#4f4f4f">
-         <font>
-            <Font name="Roboto Medium" size="16.0" />
-         </font>
-         <VBox.margin>
-            <Insets top="28.0" />
-         </VBox.margin>
-      </Label>
-      <MaskField fx:id="ipMask" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="56.0" prefWidth="300.0">
-         <font>
-            <Font name="Roboto" size="16.0" />
-         </font>
-         <VBox.margin>
-            <Insets top="8.0" />
+            <Insets top="6.0" />
          </VBox.margin>
       </MaskField>
-      <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="30.0" prefWidth="300.0">
+      <HBox alignment="CENTER_LEFT" spacing="6.0">
          <VBox.margin>
-            <Insets top="38.0" />
+            <Insets top="12.0" />
          </VBox.margin>
          <children>
-            <ImageView fitHeight="20.0" fitWidth="20.0">
+            <ImageView fitHeight="18.0" fitWidth="18.0" preserveRatio="true">
                <image>
                   <Image url="@../image/info.png" />
                </image>
             </ImageView>
-            <Hyperlink fx:id="infoHyperlink" text="Как узнать IP адресс весов" underline="true">
-               <font>
-                  <Font name="Roboto" size="16.0" />
-               </font>
-            </Hyperlink>
+            <Hyperlink fx:id="infoHyperlink" text="Как узнать IP-адрес весов" />
          </children>
       </HBox>
-      <JFXButton onAction="#hide" prefHeight="56.0" prefWidth="300.0" styleClass="secondary" text="ОТМЕНА">
+      <JFXButton maxWidth="Infinity" onAction="#hide" prefHeight="48.0" styleClass="secondary" text="ОТМЕНА">
          <VBox.margin>
-            <Insets top="18.5" />
+            <Insets top="22.0" />
          </VBox.margin>
       </JFXButton>
-      <JFXButton onAction="#onSave" prefHeight="56.0" prefWidth="300.0" styleClass="primary" text="ДОБАВИТЬ">
+      <JFXButton maxWidth="Infinity" onAction="#onSave" prefHeight="48.0" styleClass="primary" text="ДОБАВИТЬ">
          <VBox.margin>
-            <Insets top="16.0" />
+            <Insets top="10.0" />
          </VBox.margin>
       </JFXButton>
    </children>
-   <padding>
-      <Insets left="24.0" />
-   </padding>
 </VBox>

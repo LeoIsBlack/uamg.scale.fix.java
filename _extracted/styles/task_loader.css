@@ -1,32 +1,34 @@
+/* ===========================================================================
+   ИНДИКАТОР ФОНОВОЙ ЗАДАЧИ (TaskService). Подключается к сцене из кода,
+   поэтому самодостаточен. Пара для тёмной темы — в dark.css.
+   =========================================================================== */
+
 @font-face {
     font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
     src: url('../fonts/Roboto-Regular.ttf');
 }
 
-/* Same card look as modal_dialog.css .mainWindow */
 .loaderCard {
-    -fx-background-color: white;
-    -fx-background-radius: 13;
-    -fx-border-color: #66555555;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 14;
+    -fx-border-color: #e2e8f0;
     -fx-border-width: 1;
-    -fx-border-radius: 13;
+    -fx-border-radius: 14;
     -fx-padding: 36 32 32 32;
     -fx-spacing: 24;
     -fx-alignment: center;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 24, 0, 0, 4);
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.25), 24, 0, 0, 6);
 }
 
 .loaderCard .jfx-spinner .arc {
-    -fx-stroke: #2DBE60;
+    -fx-stroke: #10b981;
     -fx-stroke-width: 5;
 }
 
 .loaderText {
     -fx-font-family: "Roboto";
     -fx-font-size: 16px;
-    -fx-text-fill: #4F4F4F;
+    -fx-text-fill: #334155;
     -fx-text-alignment: center;
     -fx-wrap-text: true;
 }

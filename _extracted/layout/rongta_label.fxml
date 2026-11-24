@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
@@ -11,35 +10,24 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="container" prefWidth="420.0" styleClass="mainWindow" stylesheets="@../styles/add_scale.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kz.umag.scale.ui.RongtaLabelControl">
+<VBox fx:id="container" prefWidth="420.0" styleClass="mainWindow, dialogSurface" stylesheets="@../styles/common.css, @../styles/add_scale.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kz.umag.scale.ui.RongtaLabelControl">
+   <padding>
+      <Insets bottom="20.0" left="24.0" right="24.0" top="24.0" />
+   </padding>
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Этикетка и дисплей весов">
-         <VBox.margin>
-            <Insets top="24.0" />
-         </VBox.margin>
-         <font>
-            <Font name="Roboto Medium" size="20.0" />
-         </font>
-      </Text>
-      <Label fx:id="scaleLabel" textFill="#4f4f4f">
+      <Text styleClass="dialogTitle" text="Этикетка и дисплей весов" />
+      <Label fx:id="scaleLabel" styleClass="mutedText">
          <VBox.margin>
             <Insets top="4.0" />
          </VBox.margin>
-         <font>
-            <Font name="Roboto" size="16.0" />
-         </font>
       </Label>
 
-      <Label text="ЭТИКЕТКА" textFill="#8a8a8a">
+      <Label styleClass="sectionLabel" text="ЭТИКЕТКА">
          <VBox.margin>
-            <Insets top="20.0" />
+            <Insets top="18.0" />
          </VBox.margin>
-         <font>
-            <Font name="Roboto Medium" size="12.0" />
-         </font>
       </Label>
       <HBox alignment="CENTER_LEFT" spacing="16.0">
          <VBox.margin>
@@ -49,107 +37,72 @@
             <VBox spacing="10.0">
                <children>
                   <ComboBox fx:id="languageComboBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="160.0" promptText="Язык" />
-                  <JFXCheckBox fx:id="russianCheckBox" checkedColor="#2dbe60" text="Дублировать по-русски" textFill="#4f4f4f">
-                     <font>
-                        <Font name="Roboto" size="13.0" />
-                     </font>
-                  </JFXCheckBox>
-                  <JFXCheckBox fx:id="dateCheckBox" checkedColor="#2dbe60" text="Печатать срок годности" textFill="#4f4f4f">
-                     <font>
-                        <Font name="Roboto" size="13.0" />
-                     </font>
-                  </JFXCheckBox>
+                  <JFXCheckBox fx:id="russianCheckBox" checkedColor="#10b981" text="Дублировать по-русски" />
+                  <JFXCheckBox fx:id="dateCheckBox" checkedColor="#10b981" text="Печатать срок годности" />
                </children>
             </VBox>
-            <StackPane prefHeight="154.0" prefWidth="226.0" maxWidth="226.0" maxHeight="154.0" style="-fx-border-color: #cfcfcf; -fx-border-width: 1; -fx-background-color: white;">
+            <StackPane maxHeight="154.0" maxWidth="226.0" prefHeight="154.0" prefWidth="226.0" styleClass="labelPreview">
                <children>
                   <ImageView fx:id="previewImage" fitHeight="152.0" fitWidth="224.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </StackPane>
          </children>
       </HBox>
-      <Label fx:id="labelNameLabel" textFill="#4f4f4f">
+      <Label fx:id="labelNameLabel" styleClass="mutedText">
          <VBox.margin>
             <Insets top="6.0" />
          </VBox.margin>
-         <font>
-            <Font name="Roboto" size="13.0" />
-         </font>
       </Label>
 
-      <Label text="ДИСПЛЕЙ ВЕСОВ" textFill="#8a8a8a">
+      <Label styleClass="sectionLabel" text="ДИСПЛЕЙ ВЕСОВ">
          <VBox.margin>
-            <Insets top="20.0" />
+            <Insets top="18.0" />
          </VBox.margin>
-         <font>
-            <Font name="Roboto Medium" size="12.0" />
-         </font>
       </Label>
-      <TextField fx:id="displayTextField" minHeight="-Infinity" prefHeight="44.0" prefWidth="372.0" maxWidth="372.0">
+      <TextField fx:id="displayTextField" maxWidth="372.0" minHeight="-Infinity" prefHeight="44.0" prefWidth="372.0">
          <VBox.margin>
             <Insets top="8.0" />
          </VBox.margin>
-         <font>
-            <Font name="Roboto" size="14.0" />
-         </font>
       </TextField>
-      <Label maxWidth="372.0" text="Бегущая строка на дисплее. Пустое поле — приветствие на языке этикетки. Кириллица, казахские и кыргызские буквы, латиница." textFill="#8a8a8a" wrapText="true">
+      <Label maxWidth="372.0" styleClass="hintText" text="Бегущая строка на дисплее. Пустое поле — приветствие на языке этикетки. Кириллица, казахские и кыргызские буквы, латиница." wrapText="true">
          <VBox.margin>
             <Insets top="6.0" />
          </VBox.margin>
-         <font>
-            <Font name="Roboto" size="12.0" />
-         </font>
       </Label>
 
       <VBox fx:id="pricesBox">
          <children>
-         <Label text="ЦЕНЫ" textFill="#8a8a8a">
-            <VBox.margin>
-               <Insets top="20.0" />
-            </VBox.margin>
-            <font>
-               <Font name="Roboto Medium" size="12.0" />
-            </font>
-         </Label>
-         <JFXCheckBox fx:id="noKopecksCheckBox" checkedColor="#2dbe60" text="Цены без копеек (сумы)" textFill="#4f4f4f">
-            <VBox.margin>
-               <Insets top="8.0" />
-            </VBox.margin>
-            <font>
-               <Font name="Roboto" size="13.0" />
-            </font>
-         </JFXCheckBox>
-         <Label maxWidth="372.0" text="Должно совпадать с настройкой «десятичные знаки» в меню весов. С копейками весы печатают цены до 9 999,99; товар дороже переключил бы весы в режим без копеек, поэтому он не отправляется и попадает в отчёт. Сохраняется сразу, применяется при следующей синхронизации." textFill="#8a8a8a" wrapText="true">
-            <VBox.margin>
-               <Insets top="6.0" />
-            </VBox.margin>
-            <font>
-               <Font name="Roboto" size="12.0" />
-            </font>
-         </Label>
+            <Label styleClass="sectionLabel" text="ЦЕНЫ">
+               <VBox.margin>
+                  <Insets top="18.0" />
+               </VBox.margin>
+            </Label>
+            <JFXCheckBox fx:id="noKopecksCheckBox" checkedColor="#10b981" text="Цены без копеек (сумы)">
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </JFXCheckBox>
+            <Label maxWidth="372.0" styleClass="hintText" text="Должно совпадать с настройкой «десятичные знаки» в меню весов. С копейками весы печатают цены до 9 999,99; товар дороже переключил бы весы в режим без копеек, поэтому он не отправляется и попадает в отчёт. Сохраняется сразу, применяется при следующей синхронизации." wrapText="true">
+               <VBox.margin>
+                  <Insets top="6.0" />
+               </VBox.margin>
+            </Label>
          </children>
       </VBox>
-      <JFXButton onAction="#hide" prefHeight="56.0" prefWidth="372.0" styleClass="secondary" text="ОТМЕНА">
+      <JFXButton maxWidth="372.0" onAction="#hide" prefHeight="48.0" prefWidth="372.0" styleClass="secondary" text="ОТМЕНА">
          <VBox.margin>
-            <Insets top="24.0" />
+            <Insets top="22.0" />
          </VBox.margin>
       </JFXButton>
-      <JFXButton onAction="#onSend" prefHeight="56.0" prefWidth="372.0" styleClass="primary" text="ОТПРАВИТЬ В ВЕСЫ">
+      <JFXButton maxWidth="372.0" onAction="#onSend" prefHeight="48.0" prefWidth="372.0" styleClass="primary" text="ОТПРАВИТЬ В ВЕСЫ">
          <VBox.margin>
-            <Insets top="12.0" />
+            <Insets top="10.0" />
          </VBox.margin>
       </JFXButton>
-      <Label maxWidth="372.0" text="В весы загрузятся: этикетка, шрифты дисплея и печати, бегущая строка." textFill="#8a8a8a" wrapText="true">
+      <Label maxWidth="372.0" styleClass="hintText" text="В весы загрузятся: этикетка, шрифты дисплея и печати, бегущая строка." wrapText="true">
          <VBox.margin>
-            <Insets top="6.0" bottom="16.0" />
+            <Insets top="6.0" />
          </VBox.margin>
-         <font>
-            <Font name="Roboto" size="12.0" />
-         </font>
       </Label>
    </children>
-   <padding>
-      <Insets left="24.0" />
-   </padding>
 </VBox>

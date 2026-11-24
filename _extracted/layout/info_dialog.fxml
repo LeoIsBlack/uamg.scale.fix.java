@@ -1,53 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
-<?import javafx.scene.layout.HBox?>
-<?import com.jfoenix.controls.JFXButton?>
+<?import kz.umag.scale.ui.component.GestureScrollPane?>
 <!--suppress JavaFxUnresolvedFxIdReference -->
 
-<?import kz.umag.scale.ui.component.GestureScrollPane?>
-<BorderPane fx:id="root"
-            xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            maxWidth="560.0"
-            prefWidth="560.0"
-            maxHeight="520"
-            fx:controller="kz.umag.scale.ui.dialog.InformationModalDialogV2"
-            stylesheets="@../styles/info_dialog.css">
+<BorderPane fx:id="root" maxHeight="520" maxWidth="560.0" prefWidth="560.0" styleClass="dialogSurface, infoDialog" stylesheets="@../styles/common.css, @../styles/info_dialog.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="kz.umag.scale.ui.dialog.InformationModalDialogV2">
     <top>
         <TextFlow>
             <padding>
-                <Insets top="24" left="24" right="24"/>
+                <Insets left="24" right="24" top="24" />
             </padding>
-            <Text fx:id="title"
-                  text="Загловок"/>
+            <Text fx:id="title" styleClass="dialogTitle" text="Заголовок" />
         </TextFlow>
     </top>
     <center>
         <GestureScrollPane minHeight="100">
             <TextFlow>
                 <padding>
-                    <Insets top="24" left="24" right="24"/>
+                    <Insets left="24" right="24" top="16" />
                 </padding>
-                <Text fx:id="content"
-                      text="Текст здесь"/>
+                <Text fx:id="content" styleClass="bodyText" text="Текст здесь" />
             </TextFlow>
         </GestureScrollPane>
     </center>
     <bottom>
         <HBox alignment="CENTER_RIGHT">
             <padding>
-                <Insets top="16" left="16" right="16" bottom="16"/>
+                <Insets bottom="16" left="16" right="16" top="16" />
             </padding>
-            <JFXButton fx:id="ok"
-                       minWidth="120"
-                       styleClass="secondary"
-                       text="OK"
-                       onAction="#hide"/>
+            <JFXButton fx:id="ok" minWidth="120" onAction="#hide" prefHeight="44.0" styleClass="secondary" text="OK" />
         </HBox>
     </bottom>
-
 </BorderPane>

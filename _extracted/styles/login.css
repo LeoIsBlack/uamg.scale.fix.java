@@ -1,129 +1,23 @@
-@font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/Roboto-Regular.ttf');
+/* ===========================================================================
+   ЭКРАН ВХОДА (login.fxml). Общие компоненты — в common.css.
+   Светлая тема; пары цветов — в dark.css.
+   =========================================================================== */
+
+.loginRoot {
+    -fx-background-color: #f1f5f9;
 }
 
-@font-face {
-    font-family: "Roboto-Bold";
-    font-style: normal;
-    font-weight: 700;
-    src: url('../fonts/Roboto-Bold.ttf');
-}
-
-@font-face {
-    font-family: "Roboto-Medium";
-    font-style: normal;
-    font-weight: 500;
-    src: url('../fonts/Roboto-Medium.ttf');
-}
-
-.primary {
-    -fx-font-size: 13pt;
-    -fx-font-weight: bold;
-    -fx-text-fill: white;
-    -fx-font-family: "Roboto";
-    -fx-background-color: #10b981;
-    -fx-border-color: #059669;
-    -fx-border-width: 1;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(16,185,129,0.3), 8, 0, 0, 2);
-}
-
-.primary:hover {
-    -fx-background-color: #059669;
-}
-
-.text-field {
+.loginCard {
     -fx-background-color: #ffffff;
-    -fx-border-color: #cbd5e1;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
-    -fx-font-size: 14px;
+    -fx-background-radius: 14;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1;
+    -fx-border-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.08), 24, 0, 0, 4);
 }
 
-.text-field:focused {
-    -fx-border-color: #10b981;
-    -fx-effect: dropshadow(gaussian, rgba(16,185,129,0.25), 6, 0, 0, 0);
-}
-
-.textUmag {
+.poweredBy {
     -fx-font-family: "Roboto";
-    -fx-font-size: 14pt;
+    -fx-font-size: 12px;
     -fx-fill: #94a3b8;
-}
-
-.titleScale {
-    -fx-font-style: normal;
-    -fx-font-weight: 600;
-    -fx-font-family: "Roboto";
-    -fx-font-size: 13pt;
-    -fx-fill: #1e293b;
-}
-
-.textFieldError {
-    -fx-text-box-border: #ef4444;
-    -fx-focus-color: #ef4444;
-}
-
-.infoArea {
-    -fx-border-width: 1pt;
-    -fx-border-color: #bae6fd;
-    -fx-background-color: #f0f9ff;
-    -fx-background-radius: 8;
-    -fx-border-radius: 8;
-}
-
-.winBtn {
-    -fx-font-size: 11pt;
-    -fx-pref-width: 34px;
-    -fx-pref-height: 28px;
-    -fx-min-width: 34px;
-    -fx-min-height: 28px;
-    -fx-background-radius: 6px;
-    -fx-cursor: hand;
-    -fx-alignment: center;
-    -fx-padding: 0;
-}
-
-.winBtnMinimize, .winBtnMaximize {
-    -fx-background-color: #f8fafc;
-    -fx-text-fill: #475569;
-    -fx-border-color: #cbd5e1;
-    -fx-border-radius: 6px;
-}
-
-.winBtnTheme {
-    -fx-background-color: #f8fafc;
-    -fx-text-fill: #d97706;
-    -fx-border-color: #cbd5e1;
-    -fx-border-radius: 6px;
-}
-
-.winBtnTheme:hover {
-    -fx-background-color: #fef3c7;
-    -fx-text-fill: #b45309;
-    -fx-border-color: #f59e0b;
-}
-
-.winBtnMinimize:hover, .winBtnMaximize:hover {
-    -fx-background-color: #e2e8f0;
-    -fx-text-fill: #0f172a;
-    -fx-border-color: #94a3b8;
-}
-
-.winBtnClose {
-    -fx-background-color: #fef2f2;
-    -fx-text-fill: #dc2626;
-    -fx-border-color: #fecaca;
-    -fx-border-radius: 6px;
-}
-
-.winBtnClose:hover {
-    -fx-background-color: #ef4444;
-    -fx-text-fill: #ffffff;
-    -fx-border-color: #ef4444;
 }

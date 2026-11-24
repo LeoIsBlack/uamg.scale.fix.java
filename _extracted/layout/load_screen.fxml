@@ -4,44 +4,37 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="728" prefWidth="1024" stylesheets="@../styles/load_screen.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kz.umag.scale.ui.LoadScreenNew">
+<AnchorPane prefHeight="728" prefWidth="1024" styleClass="loadRoot" stylesheets="@../styles/common.css, @../styles/load_screen.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kz.umag.scale.ui.LoadScreenNew">
    <children>
-      <ImageView fitHeight="54.0" fitWidth="262.0" layoutX="370.0" layoutY="61.0">
-         <image>
-            <Image url="@../image/umag_scale_logo.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="149.0" fitWidth="200.0" layoutX="400.0" layoutY="304.0">
-         <image>
-            <Image url="@../image/robot.png" />
-         </image>
-      </ImageView>
-      <Text fx:id="versionTextInfo" layoutX="386.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Версия 4.0.0" textAlignment="CENTER" wrappingWidth="228.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Label fx:id="progressText" alignment="CENTER" layoutX="214.0" layoutY="528.0" prefHeight="31.0" prefWidth="572.0" text="Инициализируем . . .  базу данных. " textAlignment="CENTER">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Label>
-      <Text layoutX="393.0" layoutY="709.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textUmag" text="POWERED BY UMAG.KZ™">
-         <font>
-            <Font name="Roboto" size="19.0" />
-         </font></Text>
-      <Text fontSmoothingType="LCD" layoutX="207.0" layoutY="582.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Пожалуйста, подождите. Это может занять несколько минут.">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="132.0" fitWidth="200.0" layoutX="434.0" layoutY="155.0" preserveRatio="true">
-         <image>
-            <Image url="@../image/loading.gif" />
-         </image>
-      </ImageView>
+      <VBox alignment="CENTER" spacing="12.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="54.0" fitWidth="262.0" preserveRatio="true" styleClass="appLogo">
+               <image>
+                  <Image url="@../image/umag_scale_logo.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="versionTextInfo" styleClass="mutedText" text="Версия 4.0.0" textAlignment="CENTER" />
+            <ImageView fitHeight="110.0" fitWidth="200.0" preserveRatio="true">
+               <image>
+                  <Image url="@../image/loading.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="149.0" fitWidth="200.0" preserveRatio="true">
+               <image>
+                  <Image url="@../image/robot.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="progressText" alignment="CENTER" prefWidth="572.0" styleClass="loadProgress" text="Инициализируем . . .  базу данных. " textAlignment="CENTER" />
+            <Text styleClass="bodyText" text="Пожалуйста, подождите. Это может занять несколько минут." textAlignment="CENTER" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Text styleClass="poweredBy" text="POWERED BY UMAG.KZ™" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

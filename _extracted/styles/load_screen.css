@@ -1,35 +1,20 @@
-@font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/Roboto-Regular.ttf');
+/* ===========================================================================
+   ЭКРАН ЗАГРУЗКИ (load_screen.fxml). Общие компоненты — в common.css.
+   Светлая тема; пары цветов — в dark.css.
+   =========================================================================== */
+
+.loadRoot {
+    -fx-background-color: #ffffff;
 }
 
-@font-face {
-    font-family: "Roboto-Bold";
-    font-style: normal;
-    font-weight: 700;
-    src: url('../fonts/Roboto-Bold.ttf');
+.loadProgress {
+    -fx-font-family: "Roboto";
+    -fx-font-size: 20px;
+    -fx-text-fill: #0f172a;
 }
 
-@font-face {
-    font-family: "Roboto-Medium";
-    font-style: normal;
-    font-weight: 500;
-    src: url('../fonts/Roboto-Medium.ttf');
-}
-
-@font-face {
-    font-family: "Roboto-Italic";
-    src: url('../fonts/Roboto-Italic.ttf');
-}
-
-@font-face {
-    font-family: "RobotoThin";
-    src: url('../fonts/Roboto-Thin.ttf');
-}
-
-@font-face {
-    font-family: "RobotoLight";
-    src: url('../fonts/Roboto-Light.ttf');
+.poweredBy {
+    -fx-font-family: "Roboto";
+    -fx-font-size: 12px;
+    -fx-fill: #94a3b8;
 }

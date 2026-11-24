@@ -4,58 +4,35 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<Pane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="341.0" prefWidth="726.0" styleClass="mainWindow" stylesheets="@../styles/update_info.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kz.umag.scale.ui.UpdateInfoModel">
+<!-- UpdateInfoModel задаёт корню высоту 341 и сам меняет иконку, тексты и кнопки. -->
+<VBox alignment="TOP_CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="341.0" prefWidth="726.0" spacing="8.0" styleClass="mainWindow, dialogSurface, dialogUpdate" stylesheets="@../styles/common.css, @../styles/update_info.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kz.umag.scale.ui.UpdateInfoModel">
+   <padding>
+      <Insets bottom="20.0" left="24.0" right="24.0" top="20.0" />
+   </padding>
    <children>
-      <FlowPane alignment="CENTER" prefHeight="131.0" prefWidth="726.0">
+      <ImageView fx:id="iconImg" fitHeight="56.0" fitWidth="56.0" preserveRatio="true">
+         <image>
+            <Image url="@../image/update_icon.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="titleText" styleClass="dialogTitle" text="Появилась новая версия " textAlignment="CENTER" wrappingWidth="660.0" />
+      <Text fx:id="newVersionText" styleClass="sectionTitle" text="Что нового в версии 4.0.1:" />
+      <HBox spacing="16.0" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView fx:id="iconImg">
-               <image>
-                  <Image url="@../image/update_icon.png" />
-               </image>
-            </ImageView>
+            <TextFlow fx:id="addedTextFlow" prefWidth="329.0" styleClass="updateNotes" HBox.hgrow="ALWAYS" />
+            <TextFlow fx:id="fixedTextFlow" prefWidth="329.0" styleClass="updateNotes" HBox.hgrow="ALWAYS" />
          </children>
-      </FlowPane>
-      <Text fx:id="titleText" fill="#212121" layoutX="4.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Появилась новая версия " textAlignment="CENTER" wrappingWidth="717.03125">
-         <font>
-            <Font name="Roboto Medium" size="16.0" />
-         </font>
-      </Text>
-      <Text fx:id="newVersionText" fill="#212121" layoutX="27.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Что нового в версии 4.0.1:">
-         <font>
-            <Font name="Roboto Medium" size="16.0" />
-         </font>
-      </Text>
-      <BorderPane fx:id="container" layoutX="27.0" layoutY="190.0" prefHeight="131.0" prefWidth="687.0">
-         <bottom>
-            <HBox prefHeight="52.0" prefWidth="680.0" spacing="10.0" BorderPane.alignment="CENTER">
-               <children>
-                  <JFXButton fx:id="secondary" prefHeight="50.0" prefWidth="330.0" styleClass="secondary" text="ЗАКРЫТЬ" />
-                  <JFXButton fx:id="primary" prefHeight="50.0" prefWidth="330.0" styleClass="primary" text="ОБНОВИТЬ" />
-               </children>
-            </HBox>
-         </bottom>
-         <right>
-            <TextFlow fx:id="fixedTextFlow" maxWidth="-Infinity" prefHeight="139.0" prefWidth="329.0" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </BorderPane.margin>
-            </TextFlow>
-         </right>
-         <left>
-            <TextFlow fx:id="addedTextFlow" maxWidth="-Infinity" prefHeight="139.0" prefWidth="329.0" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </BorderPane.margin>
-            </TextFlow>
-         </left>
-      </BorderPane>
+      </HBox>
+      <HBox spacing="10.0">
+         <children>
+            <JFXButton fx:id="secondary" maxWidth="Infinity" prefHeight="48.0" styleClass="secondary" text="ЗАКРЫТЬ" HBox.hgrow="ALWAYS" />
+            <JFXButton fx:id="primary" maxWidth="Infinity" prefHeight="48.0" styleClass="primary" text="ОБНОВИТЬ" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
    </children>
-</Pane>
+</VBox>

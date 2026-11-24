@@ -1,108 +1,93 @@
-// Senior Developer Fix - Complete JAR Repack
-var File = java.io.File;
-var FileInputStream = java.io.FileInputStream;
-var FileOutputStream = java.io.FileOutputStream;
-var ZipFile = java.util.zip.ZipFile;
-var ZipOutputStream = java.util.zip.ZipOutputStream;
-var ZipEntry = java.util.zip.ZipEntry;
-var IOUtils = org.apache.commons.io.IOUtils;
-var System = java.lang.System;
+// =============================================================================
+// repack_final.js — пересборка lib/DesktopUmagFX-4.1.0.jar из _extracted/.
+//
+// Запуск из корня репозитория (приложение должно быть закрыто):
+//     jre\bin\jjs.exe -cp "lib\*" repack_final.js
+//
+// В JAR попадает КАЖДЫЙ файл из _extracted/ (заменяя одноимённый в JAR или
+// добавляясь как новый), остальное копируется из текущего JAR без изменений.
+// Ручного списка файлов больше нет — новый или изменённый файл в _extracted/
+// не потеряется.
+// =============================================================================
 
-var jarPath = 'c:\\весы\\lib\\DesktopUmagFX-4.1.0.jar';
-var extractedBase = 'c:\\весы\\_extracted';
-var tempJar = 'c:\\весы\\lib\\DesktopUmagFX-4.1.0.jar.tmp';
+var File = Java.type('java.io.File');
+var FileInputStream = Java.type('java.io.FileInputStream');
+var FileOutputStream = Java.type('java.io.FileOutputStream');
+var ZipFile = Java.type('java.util.zip.ZipFile');
+var ZipOutputStream = Java.type('java.util.zip.ZipOutputStream');
+var ZipEntry = Java.type('java.util.zip.ZipEntry');
+var Deflater = Java.type('java.util.zip.Deflater');
+var Files = Java.type('java.nio.file.Files');
+var StandardCopyOption = Java.type('java.nio.file.StandardCopyOption');
+var ByteArray = Java.type('byte[]');
 
-// Files to inject from _extracted directory
-var filesToUpdate = {
-    // Layouts (clean UTF-8 without BOM)
-    'layout/tab.fxml': true,
-    'layout/login.fxml': true,
-    'layout/sync.fxml': true,
-    'layout/products.fxml': true,
-    // Styles
-    'styles/main.css': true,
-    'styles/sync.css': true,
-    'styles/products.css': true,
-    'styles/add_scale.css': true,
-    'styles/login.css': true,
-    'styles/dark.css': true,
-    // Properties
-    'properties/version.properties': true,
-    // Patched Bytecode Classes
-    'kz/umag/scale/ui/MainControl.class': true,
-    'kz/umag/scale/ui/TabControl.class': true,
-    'kz/umag/scale/ui/LoginControl.class': true,
-    'kz/umag/scale/ui/StagedControl.class': true,
-    'kz/umag/scale/ui/AddScaleControl.class': true,
-    'kz/umag/scale/resource/scale/use_case/AddScaleUseCase.class': true,
-    'kz/umag/scale/lib/libra/ScalesFactory.class': true
-};
+var ROOT = new File(__DIR__).getAbsolutePath();
+var jarFile = new File(ROOT, 'lib/DesktopUmagFX-4.1.0.jar');
+var tmpFile = new File(ROOT, 'lib/DesktopUmagFX-4.1.0.jar.tmp');
+var extracted = new File(ROOT, '_extracted');
 
-print('Files to update in JAR:');
-for (var key in filesToUpdate) {
-    print('  ' + key);
+if (!jarFile.exists()) throw new Error('JAR не найден: ' + jarFile);
+if (!extracted.isDirectory()) throw new Error('Нет каталога: ' + extracted);
+
+function copy(input, output) {
+    var buf = new ByteArray(65536);
+    var n;
+    while ((n = input.read(buf)) > 0) output.write(buf, 0, n);
 }
 
-var zipFile = new ZipFile(jarPath);
-var fos = new FileOutputStream(tempJar);
-var zos = new ZipOutputStream(fos);
-zos.setLevel(java.util.zip.Deflater.BEST_COMPRESSION);
+// Все файлы _extracted/ с путями вида "styles/dark.css"
+var local = [];
+(function walk(dir, prefix) {
+    var list = dir.listFiles();
+    for (var i = 0; i < list.length; i++) {
+        var f = list[i];
+        var name = prefix + f.getName();
+        if (f.isDirectory()) walk(f, name + '/');
+        else local.push({ name: name, file: f });
+    }
+})(extracted, '');
+// MANIFEST.MF должен идти первым
+local.sort(function (a, b) {
+    if (a.name == 'META-INF/MANIFEST.MF') return -1;
+    if (b.name == 'META-INF/MANIFEST.MF') return 1;
+    return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
+});
 
+var zip = new ZipFile(jarFile);
+var zos = new ZipOutputStream(new FileOutputStream(tmpFile));
+zos.setLevel(Deflater.BEST_COMPRESSION);
 var seen = {};
+var replaced = 0, added = 0, copied = 0;
 
-// First pass: write updated files
-print('\nInjecting updated files...');
-for (var entryName in filesToUpdate) {
-    var localPath = extractedBase + '/' + entryName.replace(/\//g, java.io.File.separator);
-    var f = new File(localPath);
-    if (!f.exists()) {
-        print('  ERROR (not found): ' + localPath);
-        throw new Error('Required file not found: ' + localPath);
+try {
+    for (var i = 0; i < local.length; i++) {
+        var e = local[i];
+        if (zip.getEntry(e.name) != null) replaced++; else { added++; print('  NEW: ' + e.name); }
+        zos.putNextEntry(new ZipEntry(e.name));
+        var fis = new FileInputStream(e.file);
+        try { copy(fis, zos); } finally { fis.close(); }
+        zos.closeEntry();
+        seen[e.name] = true;
     }
-    var ze = new ZipEntry(entryName);
-    zos.putNextEntry(ze);
-    var fis = new FileInputStream(f);
-    IOUtils.copy(fis, zos);
-    fis.close();
-    zos.closeEntry();
-    seen[entryName] = true;
-    print('  UPDATED: ' + entryName + ' (' + f.length() + ' bytes)');
+
+    var entries = zip.entries();
+    while (entries.hasMoreElements()) {
+        var entry = entries.nextElement();
+        var name = entry.getName();
+        if (seen[name]) continue;
+        seen[name] = true;
+        zos.putNextEntry(new ZipEntry(name));
+        var is = zip.getInputStream(entry);
+        try { copy(is, zos); } finally { is.close(); }
+        zos.closeEntry();
+        copied++;
+    }
+} finally {
+    zos.close();
+    zip.close();
 }
 
-// Second pass: copy everything else from original JAR
-print('\nCopying remaining entries from original JAR...');
-var entries = zipFile.entries();
-var copied = 0;
-var skipped = 0;
-while (entries.hasMoreElements()) {
-    var entry = entries.nextElement();
-    var name = entry.getName();
-    if (seen[name]) {
-        skipped++;
-        continue;
-    }
-    seen[name] = true;
-    var newEntry = new ZipEntry(name);
-    zos.putNextEntry(newEntry);
-    var is = zipFile.getInputStream(entry);
-    IOUtils.copy(is, zos);
-    is.close();
-    zos.closeEntry();
-    copied++;
-}
+Files.move(tmpFile.toPath(), jarFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
 
-zos.close();
-fos.close();
-zipFile.close();
-
-print('\nCopied ' + copied + ' original entries, skipped ' + skipped + ' updated duplicates');
-
-var originalFile = new File(jarPath);
-var tempFile = new File(tempJar);
-originalFile.delete();
-tempFile.renameTo(originalFile);
-
-print('\n========================================');
-print('SUCCESS! JAR updated: ' + jarPath);
-print('All dark theme fixes and NPE fixes applied.');
-print('========================================');
+print('Из _extracted: заменено ' + replaced + ', добавлено ' + added + '; без изменений скопировано ' + copied);
+print('Готово: ' + jarFile);
